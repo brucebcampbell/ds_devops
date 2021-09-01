@@ -3,22 +3,31 @@
 pip install --user powerline-status
 pip install powerline-gitstatus
 
+POWERLINE_DIR='/home/bruce/anaconda3/envs/snowflakes/lib/python3.8/site-packages/powerline'
+
+
+POWERLINE_CONFIG_DIR=$POWERLINE_DIR/config_files
+echo $POWERLINE_CONFIG_DIR
+ls $POWERLINE_CONFIG_DIR
+
+cd ~
+mkdir .config
+mkdir ~/.config/powerline
+cp -R  $POWERLINE_CONFIG_DIR/*  ~/.config/powerline
+
+
 echo  '
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -f ~/.local/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh ]; then
-    source ~/.local/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
+if [ -f $POWERLINE_DIR/bindings/bash/powerline.sh ]; then
+    source $POWERLINE_DIR/bindings/bash/powerline.sh
 fi
 export POWERLINE_COMMAND=powerline
 export POWERLINE_CONFIG_COMMAND=powerline-config
 '  >> ~/.bashrc
 
-cd ~
-mkdir .config
-mkdir ~/.config/powerline
-cp -R  ./.local/lib/python3.8/site-packages/powerline/config_files/*  ~/.config/powerline
 
 # The Gitstatus segment uses a couple of custom highlight groups.
 #You'll need to define those groups in your colorscheme, for example in .config/powerline/colorschemes/default.json:

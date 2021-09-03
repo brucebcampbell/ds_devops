@@ -17,6 +17,7 @@ echo "ready"
 conda upgrade -y setuptools
 conda remove -y --name snowflakes --all
 conda create -y -n snowflakes python=3.8
+
 conda activate snowflakes
 
 conda install -y pip
@@ -62,13 +63,16 @@ conda install -y pillow #Imaging - from PIL import Image
 conda install -y pystan
 conda install -y -c conda-forge google-cloud-storage
 
-
+# NLP
 conda install -y gensim
 conda install -y nltk
 conda install -y spacy
 python -m spacy download en
 pip install pyLDAvis
 
+
+#spark
+conda  install -y pyspark
 
 #time-freq
 git clone https://github.com/scikit-signal/pytftb

@@ -1,9 +1,9 @@
 git clone https://github.com/yaronn/blessed-contrib.git
 cd blessed-contrib
-npm install
 sudo apt install npm
 sudo apt install nodejs-legacy
-node ./examples/dashboard.js
+npm install -y
+
 npm install x256
 
 npm install 'drawille-canvas-blessed-contrib'

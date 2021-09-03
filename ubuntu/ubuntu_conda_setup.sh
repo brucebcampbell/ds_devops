@@ -10,7 +10,6 @@ sudo apt-get -y install tmux
 sudo apt-get -y install texlive-*
 
 wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
-
 bash Anaconda3-2021.05-Linux-x86_64.sh
 
 echo "ready"
@@ -25,7 +24,6 @@ conda install -y Flake8 nbconvert sphinx ipywidgets
 conda install -y tensorflow
 pip install --upgrade tensorflow-probability
 conda install -y IPython Cython
-conda install -y jupyter
 conda install -y keras
 conda install -y pandas pandas-profiling
 conda install -y -c quantopian pandas-datareader #The Pandas datareader is a sub package that allows one to create a dataframe from various internet datasources, currently including:Yahoo! FinanceGoogle FinanceSt.Louis FED (FRED)Kenneth French’s data libraryWorld BankGoogle Analytics
@@ -91,15 +89,12 @@ git clone https://rtaylor@bitbucket.org/rtaylor/pylbfgs.git
 cd pytftb/
 python setup.py install
 
-
-
-
-
 conda activate snowflakes
 
 echo  '
 conda activate snowflakes
 '  >> ~/.bashrc
+
 
 #Jupyter
 cd $HOME
@@ -107,8 +102,17 @@ mkdir certs
 cd certs
 openssl req -x509 -nodes -days 365 -newkey rsa:1024 -subj "/C=US/ST=IL/L=Chicago" -keyout mycert.pem -out mycert.pem
 jupyter notebook --generate-config
-
 JUPYTER_CONFIG='/home/bruce/.jupyter/jupyter_notebook_config.py'
+
+conda install -y jupyter
+conda install -y nbconvert
+conda install -y -c conda-forge jupyter_contrib_nbextensions
+conda install -y -c conda-forge jupyter_nbextensions_configurator
+
+pip3 install jupyter-tabnine
+jupyter nbextension install --py jupyter_tabnine
+jupyter nbextension enable --py jupyter_tabnine
+jupyter serverextension enable --py jupyter_tabnine
 
 echo "c = get_config()">>$JUPYTER_CONFIG
 echo "# Notebook config this is where you saved your pem cert">>$JUPYTER_CONFIG

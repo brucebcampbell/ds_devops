@@ -1,3 +1,18 @@
+mv spark-3.1.2-bin-hadoop3.2.tgz ../opt/
+cd ~/opt/
+tar -xf spark-3.1.2-bin-hadoop3.2.tgz
+cd spark-3.1.2-bin-hadoop3.2
+cd ../sbin
+./start-master.sh
+./start-worker.sh spark://bruce-NUC8i7BEH:7077 -c 2 # 2 cores
+
+
+# To shut it all down
+#./stop-all
+
+
+
+#----------------------------------- Old method
 sudo apt install -y git-all
 sudo apt-get update
 sudo apt-get install -y build-essential

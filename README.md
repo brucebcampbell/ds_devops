@@ -1,6 +1,7 @@
 #ds-devops
 
 ## |── big-data-notes
+
 │   ├── EMR_DevOps.md
 │   ├── EMR.md
 │   ├── JavaMachineLearningSpike.md
@@ -18,6 +19,7 @@
 │   └── zookeeper.md
 
 ## ├── docker
+
 │   ├── images_2021
 │   │   ├── Dockerfile
 │   │   └── R
@@ -26,6 +28,7 @@
 │   └── notes.md
 
 ## ├── ec-2-AWSLinux
+
 │   ├── ec2_conda_setup_centos.sh
 │   ├── ec2-development_shell_server_setup.sh
 │   ├── ec2_install_desktop_centos.sh
@@ -34,6 +37,7 @@
 │   └── ec2_python_dev_setup_centos.sh
 
 ## ├── EMR
+
 │   ├── aws_emr_cli_workflow_example.sh
 │   ├── emr-development_shell_server_setup.sh
 │   ├── htop_distributed_setup.sh
@@ -42,6 +46,7 @@
 │   └── write_cluster_links.sh
 
 ## ├── git-workflow
+
 │   ├── ForkAndPull.md
 │   ├── ForkAndPull.pdf
 │   ├── git.md
@@ -50,14 +55,17 @@
 ├── LICENSE.md
 
 ## ├── linalg
+
 │   ├── intel_mlk_ipp_vsl.sh
 │   └── matrix-libs-build.sh
 
 ## ├── MIT
+
 │   ├── mit_csail_probcompstack.sh
 │   └── MIT_setup.sh
 
 ## ├── R
+
 │   ├── ConvertEpochToDate.R
 │   ├── CRANTaskView-PakgageDependencies.Rmd
 │   ├── get_cran_descriptions.R
@@ -72,9 +80,11 @@
 │   └── RStudio-shiny-server.sh
 
 ## ├── scratch
+
 │   └── snap_dbeaver_cert.sh
 
 ## ├── shell-setup
+
 │   ├── aliases.sh
 │   ├── blessed-contrib.sh
 │   ├── darkened-mc-skin.ini
@@ -85,9 +95,11 @@
 │   └── start_tmux_session-monitor.sh
 
 ## ├── tensor_flow
+
 │   └── TensorflowTesting.md
 
 ## └── ubuntu
+
     ├── pydev.md
     ├── ubuntu_conda_setup.sh
     ├── ubuntu-development_setup.sh

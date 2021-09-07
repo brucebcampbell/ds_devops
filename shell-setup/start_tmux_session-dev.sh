@@ -12,7 +12,7 @@
 #setting about the function keys to (again, IIRC) 'xterm R6' and saving
 #that in your default settings.
 
-eval `dircolors ~/dircolors-solarized/dircolors.ansi-light`
+eval `dircolors ~/opt/dircolors-solarized/dircolors.ansi-light`
 dateString=`date`
 echo "Running at $dateString"
 echo $dateString
@@ -29,7 +29,7 @@ echo $tmuxSessionId
 echo $tmuxWindowID
 
 #Cut Paste Tips
-#hold down the shift key and then left click and drag across the target text.
+#hold down the shift key and then lefterlick and drag across the target text.
 #if you want to now paste the selected text back in to xterm, you must also hold down the shift key
 #and then middle click in order to paste the text
 

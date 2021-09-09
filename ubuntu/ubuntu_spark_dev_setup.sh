@@ -1,15 +1,15 @@
-mv spark-3.1.2-bin-hadoop3.2.tgz ../opt/
+
 cd ~/opt/
-tar -xf spark-3.1.2-bin-hadoop3.2.tgz
-cd spark-3.1.2-bin-hadoop3.2
-cd ../sbin
+wget https://www.apache.org/dyn/closer.lua/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz
+SPARK_BIN=spark-3.1.2-bin-hadoop3.2.tgz
+tar -xf $SPARK_BIN
+cd $SPARK_BIN
+cd sbin
 ./start-master.sh
-./start-worker.sh spark://bruce-NUC8i7BEH:7077 -c 2 # 2 cores
-
-
+MASTER_NODE=hostname
+./start-worker.sh spark://$MASTER_NODE:7077 -c 2 # 2 cores
 # To shut it all down
 #./stop-all
-
 
 
 #----------------------------------- Old method
@@ -35,6 +35,3 @@ git clone https://github.com/$GIT_USER/spark.git
 cd spark/
 git checkout v2.4.1
 ./build/mvn -DskipTests clean package
-
-
-s

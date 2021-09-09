@@ -1,4 +1,5 @@
 
+mkdir ~/opt
 
 #  show xterm 256olors
 for i in {0..255} ; do     printf "\x1b[38;5;${i}mcolour${i}\n"; done;
@@ -33,42 +34,33 @@ alias dstat='dstat --cpu --disk  --fs  --io --ipc --load --lock --mem --net --pa
 
 #--------------------HTOP
 sudo apt-get -y install htop
-sudo apt-get -y install ncurses-devel
-sudo apt-get -y install libncurses5-dev libncursesw5-dev
 
-
-
-#We build a custom htop to get control over the colors
-cd ~
-wget http://pronto185.com/tar/htop-1.0.1-pronto-red.tar.gz
-gunzip htop-1.0.1-pronto-red.tar.gz
-tar xfs htop-1.0.1-pronto-red.tar
-cd htop-1.0.1-pronto-red
-./configure
-make
-
-echo  "
-alias htop='htop-1.0.1-pronto-red/htop'
-"  >> ~/.bashrc
 
 #Glances - like htop
 sudo apt-get install -y glances
 
 
 #-------------------------DirColors Solarized
+
+cd ~/opt
 git clone  https://github.com/seebi/dircolors-solarized
 
 echo  '
-eval `dircolors ~/dircolors-solarized/dircolors.ansi-light`
+eval `dircolors ~/opt/dircolors-solarized/dircolors.ansi-light`
 '  >> ~/.bashrc
-
+cd ../
 #OR
-# sudo apt-get install dconf-cli
-# cd gnome-terminal-colors-solarized
-# ./install.sh
-# echo  '
-# eval `dircolors /home/ubuntu/.dir_colors/dircolors`
-# '  >> ~/.bashrc
+
+cd ~/opt/
+sudo apt-get install dconf-cli
+git clone https://github.com/aruhier/gnome-terminal-colors-solarized.git
+cd gnome-terminal-colors-solarized
+./install.sh
+echo  '
+eval `dircolors /home/bruce/.dir_colors/dircolors`
+'  >> ~/.bashrc
+cd ../
+
 #---------------------------------
 
 
@@ -90,7 +82,7 @@ set -g mode-mouse on
 set -g mouse-select-pane on
 set -g mouse-resize-pane on
 set -g mouse-select-window on
-source  "~/.local/lib/python3.6/site-packages/powerline/bindings/tmux/powerline_tmux_2.1_plus.conf"
+source  "/home/bruce/anaconda3/envs/snowflakes/lib/python3.8/site-packages/powerline/bindings/tmux/powerline_tmux_2.1_plus.conf"
 '  >> ~/.tmux.conf
 
 

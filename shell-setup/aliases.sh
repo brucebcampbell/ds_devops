@@ -1,7 +1,4 @@
 
-sudo apt install bat
-
-alias cat='batcat'
 alias du='du --max-depth=1 /home/ | sort -n -r | more'
 alias l.='ls -d .* --color=auto'
 alias ll='ls -l --color=auto'

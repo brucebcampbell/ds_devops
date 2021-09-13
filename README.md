@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # ds-devops
 
 ```
@@ -188,4 +188,3 @@
     ├── ubuntu-RStudio-shiny-server.sh
     ├── ubuntu_spark_dev_setup.sh
     └── ubuntu_user_mysql_setup.md
->>>>>>> 569ded69929e85d054d9cc0ec233f480a4a7c15a

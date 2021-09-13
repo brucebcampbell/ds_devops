@@ -1,6 +1,16 @@
 
 mkdir ~/opt
 
+pip install ranger-fm
+
+
+
+sudo apt install bat
+echo  "
+alias cat='batcat'
+"  >> ~/.bashrc
+
+
 #  show xterm 256olors
 for i in {0..255} ; do     printf "\x1b[38;5;${i}mcolour${i}\n"; done;
 

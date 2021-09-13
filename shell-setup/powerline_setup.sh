@@ -4,7 +4,7 @@ pip install --user powerline-status
 pip install powerline-gitstatus
 
 POWERLINE_DIR='/home/bruce/anaconda3/envs/snowflakes/lib/python3.8/site-packages/powerline'
-
+POWERLINE_DIR='./.local/lib/python3.8/site-packages/powerline'
 
 POWERLINE_CONFIG_DIR=$POWERLINE_DIR/config_files
 echo $POWERLINE_CONFIG_DIR

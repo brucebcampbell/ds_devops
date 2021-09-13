@@ -41,12 +41,12 @@ conda install -y dill #dill extends python’s pickle module for serializing and
 
 pip install rich
 
-pip install tensorflow_decision_forests
+pip install tensorflow_decision_forests lightgbm catboost category_encoders
 pip install --ignore-installed great-expectations
 pip install 'ray[default]' xgboost_ray
 pip install umap-learn
 pip install Optuna
-pip install lightgbm catboost category_encoders
+pip install
 pip install tsfresh prophet orbit-ml
 
 pip install --upgrade jax jaxlib==0.1.67+cuda111 -f https://storage.googleapis.com/jax-releases/jax_releases.html

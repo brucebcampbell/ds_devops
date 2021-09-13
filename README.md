@@ -1,6 +1,5 @@
 # ds-devops
 
-.
 ├── big-data-notes
 │   ├── EMR_DevOps.md
 │   ├── EMR.md

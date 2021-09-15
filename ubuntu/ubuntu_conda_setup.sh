@@ -47,6 +47,7 @@ pip install 'ray[default]' xgboost_ray
 pip install umap-learn
 pip install Optuna
 pip install MIDASpy # Multiple imputation with autoencoders
+pip install missingno # simple vis for missingness
 pip install tsfresh prophet orbit-ml
 
 pip install --upgrade jax jaxlib==0.1.67+cuda111 -f https://storage.googleapis.com/jax-releases/jax_releases.html

@@ -52,7 +52,7 @@ pip install tsfresh prophet orbit-ml
 
 pip install --upgrade jax jaxlib==0.1.67+cuda111 -f https://storage.googleapis.com/jax-releases/jax_releases.html
 pip install numba
-pip install mlflow
+pip install mlflow kedro-mlflow kedro
 
 #  L1 and Convex Optimization
 pip install  osqp

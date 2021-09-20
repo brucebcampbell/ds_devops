@@ -86,8 +86,8 @@ pip install transformers
 
 #spark
 # cd ~/opt/
-# wget https://www.apache.org/dyn/closer.lua/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz
-# SPARK_BIN=spark-3.1.2-bin-hadoop3.2.tgz
+# wget https://www.apache.org/dyn/closer.lua/spark/spark-X.Y.Z/spark-X.Y.Z-bin-hadoop3.2.tgz
+# SPARK_BIN=spark-X.Y.Z-bin-hadoop3.2.tgz
 # tar -xf $SPARK_BIN
 # cd $SPARK_BIN
 # cd sbin

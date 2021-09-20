@@ -9,7 +9,9 @@ from sklearn.model_selection import StratifiedKFold
 import torch
 import torch.nn as nn
 
+# Dubious! Why are we mixing torch and tf ? 
 #from tensorflow.python.framework.random_seed import set_random_seed
+
 from transformers import RobertaModel, RobertaTokenizer
 
 class MyDataset(torch.utils.data.Dataset):

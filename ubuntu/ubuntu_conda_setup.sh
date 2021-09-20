@@ -31,7 +31,7 @@ conda install -y Flake8 black sphinx ipywidgets IPython Cython  wurlitzer boto3
 conda install -y -c conda-forge google-cloud-storage
 conda install -y tensorflow tensorflow-probability
 conda install -y keras
-conda install -y pandas pandas-profiling
+conda install -y pandas pandas-profiling pandasql
 conda install -y -c quantopian pandas-datareader #The Pandas datareader is a sub package that allows one to create a dataframe from various internet datasources, currently including:Yahoo! FinanceGoogle FinanceSt.Louis FED (FRED)Kenneth French’s data libraryWorld BankGoogle Analytics
 conda install -y matplotlib seaborn pyviz datashader altair
 conda install -y numpy scipy scikit-learn
@@ -127,16 +127,23 @@ cd $HOME
 mkdir certs
 cd certs
 
-conda install -y jupyter nbconvert
-pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install --user
-#conda install -y -c conda-forge jupyter_contrib_nbextensions
-#conda install -y -c conda-forge jupyter_nbextensions_configurator
-pip3 install jupyter-tabnine
+conda install -y jupyter nbconvert jupyterthemes ipykernel
 
+pip install jupyterlab
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
+pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install --user
+conda install -y -c conda-forge jupyterthemes
+conda install -y -c conda-forge jupyter_contrib_nbextensions
+conda install -y -c conda-forge jupyter_nbextensions_configurator
+pip3 install jupyter-tabnine
+pip install qgrid
+
+jupyter nbextension enable --py widgetsnbextension
+jupyter nbextension enable --py --sys-prefix qgrid
 jupyter nbextension install --py jupyter_tabnine
 jupyter nbextension enable --py jupyter_tabnine
 jupyter serverextension enable --py jupyter_tabnine
-
 
 openssl req -x509 -nodes -days 365 -newkey rsa:1024 -subj "/C=US/ST=IL/L=Chicago" -keyout mycert.pem -out mycert.pem
 jupyter notebook --generate-config

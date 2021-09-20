@@ -82,6 +82,7 @@ conda install -y nltk
 conda install -y spacy
 python -m spacy download en
 pip install pyLDAvis
+pip install transformers
 
 #spark
 # cd ~/opt/

@@ -3,11 +3,19 @@ mkdir ~/opt
 
 pip install ranger-fm
 
-
-
 sudo apt install bat
 echo  "
 alias cat='batcat'
+"  >> ~/.bashrc
+
+# btop
+mkdir ~/opt
+cd ~/opt
+wget https://github.com/aristocratos/btop/releases/download/v1.0.1/btop-1.0.1-linux-x86-64.tbz
+unzip btop-1.0.1-linux-x86-64.tbz
+
+echo  "
+export PATH='~/opt/btop-1.0.1-linux-x86-64/bin:$PATH'
 "  >> ~/.bashrc
 
 

@@ -29,19 +29,19 @@ conda activate $CONDA_ENV
 conda install -y pip
 conda install -y Flake8 black sphinx ipywidgets IPython Cython  wurlitzer boto3
 conda install -y -c conda-forge google-cloud-storage
-conda install -y tensorflow tensorflow-probability
 conda install -y keras
 conda install -y pandas pandas-profiling pandasql
 conda install -y -c quantopian pandas-datareader #The Pandas datareader is a sub package that allows one to create a dataframe from various internet datasources, currently including:Yahoo! FinanceGoogle FinanceSt.Louis FED (FRED)Kenneth French’s data libraryWorld BankGoogle Analytics
 conda install -y matplotlib seaborn pyviz datashader altair
 conda install -y numpy scipy scikit-learn
-conda install -y scikit-learn-intelex  # Intel Data Science Library
+#conda install -y scikit-learn-intelex  # Intel Data Science Library
 conda install -y dill #dill extends python’s pickle module for serializing and de-serializing python objects to the majority of the built-in python types. Serialization is the process of converting an object to a byte stream, and the inverse of which is converting a byte stream back to a python object hierarchy.
 #conda install -n $CONDA_ENV -c rapidsai -c nvidia -c conda-forge blazingsql=0.19 cudf=0.19 python=3.8 cudatoolkit=10.1
-
 pip install rich
 
-pip install tensorflow_decision_forests lightgbm catboost category_encoders
+
+pip install tensorflow tensorflow-probability tensorflow_decision_forests keras
+pip install lightgbm catboost category_encoders
 pip install --ignore-installed great-expectations
 pip install 'ray[default]' xgboost_ray
 pip install umap-learn
@@ -81,8 +81,9 @@ conda install -y gensim
 conda install -y nltk
 conda install -y spacy
 python -m spacy download en
+pip3 install torch 
 pip install pyLDAvis
-pip install transformers
+pip install transformers #State-of-the-art Natural Language Processing for TensorFlow 2.0 and PyTorch
 
 #spark
 # cd ~/opt/

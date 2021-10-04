@@ -4,7 +4,7 @@ Here's a comparison of java machine learning libraries
 
 https://java.libhunt.com/categories/430-machine-learning
 
-##Smile - from Cheif Data Scientist at ADP
+##Smile - from Chief Data Scientist at ADP
 
 https://github.com/haifengl/smile
 
@@ -43,7 +43,7 @@ https://github.com/jrachiele/makina
 
 Some of the use gradle
 
-###Gradle install 
+###Gradle install
 ```
 #This is for the devlopment environment
 export gradle_version=2.14
@@ -88,4 +88,4 @@ A problem occurred evaluating root project 'makina'.
 ##Smile Notes
 
 
-Smile uses sbt which can be imported to intellij.  When running the unit tests make sure to set the working directory to the sbt app_home location.  I beleive this is where the build.sbt file is locatet - the root of the git repo. 
+Smile uses sbt which can be imported to intellij.  When running the unit tests make sure to set the working directory to the sbt app_home location.  I beleive this is where the build.sbt file is locatet - the root of the git repo.

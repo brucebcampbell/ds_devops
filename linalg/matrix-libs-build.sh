@@ -1,10 +1,11 @@
+#
 
 sudo yum -y install atlas-devel
 sudo yum -y install lapack
 
 # Openblas is based on the famous - GotoBlas  - we should compare to Atlas
 
-# This is not working with the SuitSparse build 
+# This is not working with the SuitSparse build
 #sudo yum -y install openblas
 git clone https://github.com/xianyi/OpenBLAS.git
 cd OpenBLAS/
@@ -20,11 +21,11 @@ sudo yum -y install cmake
 mkdir matrix-libs
 cd matrix-libs/
 wget http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.5.tar.gz
- 
+
 tar -xf SuiteSparse-4.5.5.tar.gz
- 
+
 cd SuiteSparse
- 
+
 # ----------------------------------------------------------------
 # SuiteSparse package compilation options:
 # ----------------------------------------------------------------

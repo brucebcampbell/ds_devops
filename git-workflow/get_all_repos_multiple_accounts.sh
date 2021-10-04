@@ -1,3 +1,4 @@
+
 ACCOUNT_LIST=('wavescholar' 'brucebcampbell' 'ncsu-statistics')
 
 for account_name in "${ACCOUNT_LIST[@]}"

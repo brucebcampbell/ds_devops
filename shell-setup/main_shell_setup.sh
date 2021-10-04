@@ -1,4 +1,12 @@
 
+gsettings set org.gnome.desktop.background picture-uri ''
+gsettings set org.gnome.desktop.background primary-color 'rgb(0, 0, 0)'
+
+
+git config --global user.email $GITHUB_EMAIL
+git config --global user.name $GITHUB_USER
+
+
 mkdir ~/opt
 
 pip install ranger-fm
@@ -9,13 +17,18 @@ alias cat='batcat'
 "  >> ~/.bashrc
 
 # btop
-mkdir ~/opt
-cd ~/opt
-wget https://github.com/aristocratos/btop/releases/download/v1.0.1/btop-1.0.1-linux-x86-64.tbz
-unzip btop-1.0.1-linux-x86-64.tbz
+#cd ~/opt
+#wget https://github.com/aristocratos/btop/releases/download/v1.0.1/btop-1.0.1-linux-x86-64.tbz
+#unzip btop-1.0.1-linux-x86-64.tbz
+# echo  "
+# export PATH='~/opt/btop-1.0.1-linux-x86-64/bin:$PATH'
+# "  >> ~/.bashrc
+
+sudo snap install btop
+cd ../
 
 echo  "
-export PATH='~/opt/btop-1.0.1-linux-x86-64/bin:$PATH'
+alias top='btop'
 "  >> ~/.bashrc
 
 

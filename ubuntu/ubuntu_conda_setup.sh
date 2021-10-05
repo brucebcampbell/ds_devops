@@ -29,7 +29,6 @@ conda activate $CONDA_ENV
 conda install -y pip
 conda install -y Flake8 black sphinx ipywidgets IPython Cython  wurlitzer boto3
 conda install -y -c conda-forge google-cloud-storage
-conda install -y keras
 conda install -y pandas pandas-profiling pandasql
 conda install -y -c quantopian pandas-datareader #The Pandas datareader is a sub package that allows one to create a dataframe from various internet datasources, currently including:Yahoo! FinanceGoogle FinanceSt.Louis FED (FRED)Kenneth French’s data libraryWorld BankGoogle Analytics
 conda install -y matplotlib seaborn pyviz datashader altair
@@ -81,7 +80,7 @@ conda install -y gensim
 conda install -y nltk
 conda install -y spacy
 python -m spacy download en
-pip3 install torch 
+pip3 install torch
 pip install pyLDAvis
 pip install transformers #State-of-the-art Natural Language Processing for TensorFlow 2.0 and PyTorch
 

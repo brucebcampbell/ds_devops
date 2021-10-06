@@ -40,9 +40,11 @@ pip install rich
 
 
 pip install tensorflow tensorflow-probability tensorflow_decision_forests keras
+
 pip install lightgbm catboost category_encoders
 pip install --ignore-installed great-expectations
 pip install 'ray[default]' xgboost_ray
+
 pip install umap-learn
 pip install Optuna
 pip install MIDASpy # Multiple imputation with autoencoders
@@ -136,7 +138,12 @@ pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install 
 conda install -y -c conda-forge jupyterthemes
 conda install -y -c conda-forge jupyter_contrib_nbextensions
 conda install -y -c conda-forge jupyter_nbextensions_configurator
+
 pip3 install jupyter-tabnine
+
+# Note that Kite is in transition 10-2021
+bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
+
 pip install qgrid
 
 jupyter nbextension enable --py widgetsnbextension

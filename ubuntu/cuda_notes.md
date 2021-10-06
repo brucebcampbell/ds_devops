@@ -46,6 +46,7 @@ Before installing drivers and toolkits we need to decide what libraries will be 
 
 From this entry `CUDA 11.2.2 Update 2	>=460.32.03	>=461.33` we see that we should set up driver version 460
 
+## CUDA Toolkit
 
 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_local
 
@@ -59,3 +60,24 @@ sudo apt-get update
 sudo apt-get -y install cuda
 
 ```
+
+## HPC Library - has nvfortran
+
+```
+wget https://developer.download.nvidia.com/hpc-sdk/21.9/nvhpc-21-9_21.9_amd64.deb
+wget https://developer.download.nvidia.com/hpc-sdk/21.9/nvhpc-2021_21.9_amd64.deb
+sudo apt-get install ./nvhpc-21-9_21.9_amd64.deb ./nvhpc-2021_21.9_amd64.deb
+```
+
+confusion regarding NVIDIA’s nvcc sm flags and what they’re used for:
+When compiling with NVCC, the arch flag (‘-arch‘) specifies the name of the NVIDIA GPU architecture that the CUDA files will be compiled for.
+Gencodes (‘-gencode‘) allows for more PTX generations and can be repeated many times for different architectures.
+
+Here’s a list of NVIDIA architecture names, and which compute capabilities they have:
+
+Fermi†	Kepler†	Maxwell‡	Pascal	Volta	Turing	Ampere	Lovelace*	Hopper**
+sm_20	sm_30	sm_50	sm_60	sm_70	sm_75	sm_80	sm_90?	sm_100c?
+      sm_35	sm_52	sm_61	sm_72		sm_86		
+      sm_37	sm_53	sm_62				
+
+GeForce RTX™ 3080 Ti and RTX 3080 graphics cards are on Ampere; NVIDIA's 2nd gen RTX architecture

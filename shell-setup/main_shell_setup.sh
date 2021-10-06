@@ -16,21 +16,12 @@ echo  "
 alias cat='batcat'
 "  >> ~/.bashrc
 
-# btop
-#cd ~/opt
-#wget https://github.com/aristocratos/btop/releases/download/v1.0.1/btop-1.0.1-linux-x86-64.tbz
-#unzip btop-1.0.1-linux-x86-64.tbz
-# echo  "
-# export PATH='~/opt/btop-1.0.1-linux-x86-64/bin:$PATH'
-# "  >> ~/.bashrc
-
 sudo snap install btop
 cd ../
 
 echo  "
 alias top='btop'
 "  >> ~/.bashrc
-
 
 #  show xterm 256olors
 for i in {0..255} ; do     printf "\x1b[38;5;${i}mcolour${i}\n"; done;

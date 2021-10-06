@@ -3,15 +3,26 @@ import math
 import matplotlib.pyplot as plt
 #%matplotlib notebook
 
+
+torch.cuda.is_available()
+
+
+torch.cuda.current_device()
+
+
+torch.cuda.device(0)
+
+torch.cuda.device_count()
+
+torch.cuda.get_device_name(0)
+
 dtype = torch.float
-device = torch.device("cpu")
-# device = torch.device("cuda:0") # Uncomment this to run on GPU
+#device = torch.device("cpu")
+device = torch.device("cuda:0") # Uncomment this to run on GPU
 
 # Create random input and output data
 x = torch.linspace(-math.pi, math.pi, 2000, device=device, dtype=dtype)
 y = torch.sin(x)
-
-plt.plot(x,y)
 
 # Randomly initialize weights
 a = torch.randn((), device=device, dtype=dtype)

@@ -118,7 +118,7 @@ python setup.py install
 conda activate $CONDA_ENV
 
 echo  '
-conda activate $CONDA_ENV
+conda activate `$CONDA_ENV`
 '  >> ~/.bashrc
 
 

@@ -81,3 +81,18 @@ sm_20	sm_30	sm_50	sm_60	sm_70	sm_75	sm_80	sm_90?	sm_100c?
       sm_37	sm_53	sm_62				
 
 GeForce RTX™ 3080 Ti and RTX 3080 graphics cards are on Ampere; NVIDIA's 2nd gen RTX architecture
+
+
+## See what cuda drivers are loaded
+
+
+```
+lsmod | grep nvidia
+```
+
+nvidia_uvm           1048576  2
+nvidia_drm             61440  10
+nvidia_modeset       1196032  20 nvidia_drm
+nvidia              35270656  1381 nvidia_uvm,nvidia_modeset
+drm_kms_helper        245760  1 nvidia_drm
+drm                   552960  14 drm_kms_helper,nvidia,nvidia_drm

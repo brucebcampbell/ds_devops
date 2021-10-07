@@ -93,7 +93,24 @@ sudo apt-key add /var/cuda-repo-ubuntu2004-11-4-local/7fa2af80.pub
 sudo apt-get update
 sudo apt-get -y install cuda
 
+## cudnn : Tensorflow Requires This. It's a GPU-accelerated library of primitives for deep neural networks.
 
+```
+wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.2.4/11.4_20210831/Ubuntu20_04-x64/libcudnn8_8.2.4.15-1+cuda11.4_amd64.deb
+
+wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.2.4/11.4_20210831/Ubuntu20_04-x64/libcudnn8-dev_8.2.4.15-1+cuda11.4_amd64.deb
+
+wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.2.4/11.4_20210831/Ubuntu20_04-x64/libcudnn8-samples_8.2.4.15-1+cuda11.4_amd64.deb
+
+sudo dpkg -i libcudnn8_8.2.4.15-1+cuda11.4_amd64.deb
+
+#update-alternatives: using /usr/include/x86_64-linux-gnu/cudnn_v8.h to provide /usr/include/cudnn.h (libcudnn) in auto mode
+#This might need config if we installed the runtime first?
+sudo dpkg -i libcudnn8-dev_8.2.4.15-1+cuda11.4_amd64.deb
+
+#Pretty Sure you can't install this unless you have the developer library
+sudo dpkg -i libcudnn8-samples_8.2.4.15-1+cuda11.4_amd64.deb
+```
 
 ## HPC Library - has nvfortran
 
@@ -132,7 +149,7 @@ drm_kms_helper        245760  1 nvidia_drm
 drm                   552960  14 drm_kms_helper,nvidia,nvidia_drm
 
 
-## nvtop ?
+## nvtop ? NO!
 
 Removed all 470 drivers and broke everything.  Reinstall is drivers let to this - not sure if we did the driver signing / BIOS step correctly.
 

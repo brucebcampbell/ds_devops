@@ -30,7 +30,7 @@ sudo gedit ~/.bashrc
 sudo source ~/.bashrc
 ```
 
-Once removed, echo $PATH | grep cudaand echo $LD_LIBRARY_PATH | grep cudashould not have ‘cuda’ in it!
+Once removed, `echo $PATH | grep cuda` and `echo $LD_LIBRARY_PATH | grep cuda` should not have ‘cuda’ in it!
 Now we will tidy up python packages. If you have any python virtual environments set up (read here), you should switch to them. But for my setup, I ran this single command:
 pip uninstall tb-nightly tensorboardX tensorboard tensorflow tensorflow-gpu
 This might throw some errors depending upon whether you had that package installed or not so no need to worry!
@@ -38,16 +38,43 @@ This might throw some errors depending upon whether you had that package install
 What's the difference between CUDA and CUDA Toolkit?
 
 CUDA Toolkit is a software package that has different components. The main pieces are: CUDA SDK (The compiler, NVCC, libraries for developing CUDA software, and CUDA samples) GUI Tools (such as Eclipse Nsight for Linux/OS X or Visual Studio Nsight for Windows) This link provides the information to deduce the right versions of CUDA and the CUDA Toolkit;
+
 https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html
 
 
 Before installing drivers and toolkits we need to decide what libraries will be calling into CUDA and what versions they support. AS of 100321 the correct version of CUDA for Tensorflow is 11.2 but the latest drivers are at 11.4. This means you cannot use the latest drivers with the latest release of Tensorflow. Worse - what if you need Pytorch *and* tensorflow and they have different requirements for CUDA version? The latest version of Pytorch supports
 
-
 From this entry `CUDA 11.2.2 Update 2	>=460.32.03	>=461.33` we see that we should set up driver version 460
+
+## CUDA Driver
+
+Run
+
+```
+nvidia-detector
+```
+
+If `nvidia-driver-470` is the output then run
+
+```
+sudo apt-get install nvidia-driver-470
+```
+
 
 ## CUDA Toolkit
 
+### My Instructions
+
+```
+sudo apt-get install nvidia-cuda-toolkit
+```
+
+
+### NVIDIA Instructions : <---------------------possible issue
+
+See : https://forums.developer.nvidia.com/t/ubuntu20-04-nvidia-driver-470-card-drops-out-after-minimal-use-delay-after-first-cuda-command-but-works-w-nvidia-driver-460/191442
+
+This is where we got the recipe :
 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_local
 
 ```
@@ -55,11 +82,18 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/
 sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
 wget https://developer.download.nvidia.com/compute/cuda/11.4.2/local_installers/cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
-sudo apt-key add /var/cuda-repo-ubuntu2004-11-4-local/7fa2af80.pub
+
 sudo apt-get update
 sudo apt-get -y install cuda
 
 ```
+wget https://developer.download.nvidia.com/compute/cuda/11.4.2/local_installers/cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu2004-11-4-local/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+
+
 
 ## HPC Library - has nvfortran
 
@@ -96,3 +130,19 @@ nvidia_modeset       1196032  20 nvidia_drm
 nvidia              35270656  1381 nvidia_uvm,nvidia_modeset
 drm_kms_helper        245760  1 nvidia_drm
 drm                   552960  14 drm_kms_helper,nvidia,nvidia_drm
+
+
+## nvtop ?
+
+Removed all 470 drivers and broke everything.  Reinstall is drivers let to this - not sure if we did the driver signing / BIOS step correctly.
+
+```
+Can't load /var/lib/shim-signed/mok/.rnd into RNG
+140074646935360:error:2406F079:random number generator:RAND_load_file:Cannot open file:../crypto/rand/randfile.c:98:Filename=/var/lib/shim-signed/mok/.rnd
+Generating a RSA private key
+........................................................................+++++
+.........+++++
+writing new private key to '/var/lib/shim-signed/mok/MOK.priv'
+-----
+Secure Boot not enabled on this system.
+```

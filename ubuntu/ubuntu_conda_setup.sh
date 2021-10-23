@@ -39,7 +39,8 @@ conda install -y dill #dill extends python’s pickle module for serializing and
 pip install rich
 
 
-pip install tensorflow tensorflow-probability tensorflow_decision_forests keras
+pip install tensorflow-gpu
+pip install tensorflow-probability tensorflow_decision_forests keras
 
 pip install lightgbm catboost category_encoders
 pip install --ignore-installed great-expectations

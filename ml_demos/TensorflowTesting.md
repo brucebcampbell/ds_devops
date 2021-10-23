@@ -47,7 +47,7 @@ with tf.Session() as sess:
 
 
 ```python
-print(tf.__version__)
+
 
 ```
 
@@ -57,6 +57,7 @@ print(tf.__version__)
 
 ```python
 with tf.Session() as sess:
+  print(tf.__version__)
   devices = sess.list_devices()
   print(devices)
 ```

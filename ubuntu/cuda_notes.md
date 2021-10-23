@@ -1,3 +1,76 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # CUDA Notes
 
 ## Do I have a GPU?
@@ -63,19 +136,20 @@ sudo apt-get install nvidia-driver-470
 
 ## CUDA Toolkit
 
-### My Instructions
-
-```
-sudo apt-get install nvidia-cuda-toolkit
-```
-
-
-### NVIDIA Instructions : <---------------------possible issue
+### NVIDIA Instructions
 
 See : https://forums.developer.nvidia.com/t/ubuntu20-04-nvidia-driver-470-card-drops-out-after-minimal-use-delay-after-first-cuda-command-but-works-w-nvidia-driver-460/191442
 
 This is where we got the recipe :
 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_local
+
+See this when done. There are steps to take after the install;
+https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
+
+And if you are impatient - this is the minimum that must be done;
+https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#mandatory-post
+
+
 
 ```
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
@@ -87,6 +161,7 @@ sudo apt-get update
 sudo apt-get -y install cuda
 
 ```
+
 wget https://developer.download.nvidia.com/compute/cuda/11.4.2/local_installers/cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
 sudo apt-key add /var/cuda-repo-ubuntu2004-11-4-local/7fa2af80.pub
@@ -103,6 +178,9 @@ wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.2.4/11
 wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.2.4/11.4_20210831/Ubuntu20_04-x64/libcudnn8-samples_8.2.4.15-1+cuda11.4_amd64.deb
 
 sudo dpkg -i libcudnn8_8.2.4.15-1+cuda11.4_amd64.deb
+```
+
+
 
 #update-alternatives: using /usr/include/x86_64-linux-gnu/cudnn_v8.h to provide /usr/include/cudnn.h (libcudnn) in auto mode
 #This might need config if we installed the runtime first?
@@ -151,7 +229,7 @@ drm                   552960  14 drm_kms_helper,nvidia,nvidia_drm
 
 ## nvtop ? NO!
 
-Removed all 470 drivers and broke everything.  Reinstall is drivers let to this - not sure if we did the driver signing / BIOS step correctly.
+Removed all 470 drivers and broke everything.  Reinstall of drivers let to below - not sure if we did the driver signing / BIOS step correctly.
 
 ```
 Can't load /var/lib/shim-signed/mok/.rnd into RNG

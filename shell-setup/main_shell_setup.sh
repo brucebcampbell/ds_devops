@@ -1,7 +1,38 @@
+#MAnual Stuff
+# sdudo vi /etc/sudoers
+#Find a line which contains includedir /etc/sudoers.d
+#Below that line add: username ALL=(ALL) NOPASSWD: ALL , where username is your passwordless sudo username;
+
+
+#Nasty Stuff
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.4.2/local_installers/cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu2004-11-4-local/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+
+echo  "
+export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}
+"  >> ~/.bashrc
+
+
+echo  "
+export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64\
+                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+"  >> ~/.bashrc
+
+
+
+
+sudo apt-get install -y vim
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+sudo apt install -y gnome-tweaks
+sudo apt-get install chrome-gnome-shell
 
 gsettings set org.gnome.desktop.background picture-uri ''
 gsettings set org.gnome.desktop.background primary-color 'rgb(0, 0, 0)'
-
 
 git config --global user.email $GITHUB_EMAIL
 git config --global user.name $GITHUB_USER
@@ -23,28 +54,6 @@ echo  "
 alias top='btop'
 "  >> ~/.bashrc
 
-#  show xterm 256olors
-for i in {0..255} ; do     printf "\x1b[38;5;${i}mcolour${i}\n"; done;
-
-#--------------------MIDNIGHT COMMANDER : visual file system viewer
-
-cd ~
-sudo apt-get -y install mc
-git clone https://gist.github.com/Ajnasz/8685681
-mkdir ~/.mc
-mkdir ~/.mc/skins
-cp 8685681/ajnasz-blue.ini  ~/.mc/skins/
-#.config/mc/ini adding a line containing skin=ajnasz-blue
-git clone https://github.com/nkulikov/mc-solarized-skin
-cp mc-solarized-skin/solarized.ini ~/.mc/skins/
-git clone https://github.com/MidnightCommander/mc
-cp mc/misc/skins/*.ini ~/.mc/skins/
-
-#---------------user_name customize skin
-cd ~/.mc/skins
-sed -i -- 's/black/color024/g' gotar.ini
-#sed -i -- 's/button = white;blue/button = white;color178/g' gotar.ini
-
 cd ~
 
 sudo apt-get -y install dstat
@@ -62,26 +71,6 @@ sudo apt-get -y install htop
 sudo apt-get install -y glances
 
 
-#-------------------------DirColors Solarized
-
-cd ~/opt
-git clone  https://github.com/seebi/dircolors-solarized
-
-echo  '
-eval `dircolors ~/opt/dircolors-solarized/dircolors.ansi-light`
-'  >> ~/.bashrc
-cd ../
-#OR
-
-cd ~/opt/
-sudo apt-get install dconf-cli
-git clone https://github.com/aruhier/gnome-terminal-colors-solarized.git
-cd gnome-terminal-colors-solarized
-./install.sh
-echo  '
-eval `dircolors /home/bruce/.dir_colors/dircolors`
-'  >> ~/.bashrc
-cd ../
 
 #---------------------------------
 

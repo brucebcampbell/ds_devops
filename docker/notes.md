@@ -1,5 +1,20 @@
 
-#DockerHub
+## Docker Engine
+
+```
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+sudo apt-get update
+sudo apt-get install -y docker           
+#docker2aci       
+sudo apt-get install -y docker-clean     
+sudo apt-get install -y docker-compose   
+sudo apt-get install -y docker-doc       
+sudo apt-get install -y docker.io        
+sudo apt-get install -y docker-registry #The Registry is a stateless, highly scalable server side application that stores and lets you distribute Docker images. 
+```
+
+## DockerHub
 
 ```
 docker tag local-image:tagname new-repo:tagname

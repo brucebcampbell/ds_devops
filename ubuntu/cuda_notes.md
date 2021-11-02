@@ -1,6 +1,6 @@
 # CUDA Notes
 
-These are from hardware builds in 2021.  Some might apply to my razer blade 15 fht but both systems run the same version of Ubuntu and have rtx 3080's. 
+These are from hardware builds in 2021.  Some might apply to my razer blade 15 fht but both systems run the same version of Ubuntu and have rtx 3080's.
 
 ## Do I have a GPU?
 
@@ -15,8 +15,8 @@ Uninstall/remove/revert all CUDA-related changes you have made to the system so 
 
 ```
 sudo rm /etc/apt/sources.list.d/cuda*
-sudo apt remove --autoremove nvidia-*
-sudo apt-get purge nvidia*
+sudo apt remove -y --autoremove nvidia-*
+sudo apt-get purge -y nvidia*
 sudo apt-get autoclean
 sudo apt-get autoremove
 sudo rm -rf /usr/lib/cuda*
@@ -62,6 +62,10 @@ If `nvidia-driver-470` is the output then run
 sudo apt-get install nvidia-driver-470
 ```
 
+This checks version of a toolkit component - NVRM
+```
+cat /proc/driver/nvidia/version
+```
 
 ## CUDA Toolkit
 
@@ -83,19 +87,29 @@ https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#mandatory-
 ```
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
 sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-wget https://developer.download.nvidia.com/compute/cuda/11.4.2/local_installers/cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
-
+wget https://developer.download.nvidia.com/compute/cuda/11.5.0/local_installers/cuda-repo-ubuntu2004-11-5-local_11.5.0-495.29.05-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2004-11-5-local_11.5.0-495.29.05-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu2004-11-5-local/7fa2af80.pub
 sudo apt-get update
 sudo apt-get -y install cuda
+
+echo "Adding paths to bashrc "
+
+echo  "
+export PATH=/usr/local/cuda-11.5/bin${PATH:+:${PATH}}
+"  >> ~/.bashrc
+
+
+echo  "
+export LD_LIBRARY_PATH=/usr/local/cuda-11.5/lib64\
+                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+"  >> ~/.bashrc
+
+
 
 ```
 
-wget https://developer.download.nvidia.com/compute/cuda/11.4.2/local_installers/cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
-sudo apt-key add /var/cuda-repo-ubuntu2004-11-4-local/7fa2af80.pub
-sudo apt-get update
-sudo apt-get -y install cuda
 
 ## cudnn : Tensorflow Requires This. It's a GPU-accelerated library of primitives for deep neural networks.
 
@@ -153,4 +167,3 @@ nvidia_modeset       1196032  20 nvidia_drm
 nvidia              35270656  1381 nvidia_uvm,nvidia_modeset
 drm_kms_helper        245760  1 nvidia_drm
 drm                   552960  14 drm_kms_helper,nvidia,nvidia_drm
-

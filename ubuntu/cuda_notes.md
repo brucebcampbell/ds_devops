@@ -143,7 +143,6 @@ GeForce RTX™ 3080 Ti and RTX 3080 graphics cards are on Ampere; NVIDIA's 2nd g
 
 ## See what cuda drivers are loaded
 
-
 ```
 lsmod | grep nvidia
 ```
@@ -155,18 +154,3 @@ nvidia              35270656  1381 nvidia_uvm,nvidia_modeset
 drm_kms_helper        245760  1 nvidia_drm
 drm                   552960  14 drm_kms_helper,nvidia,nvidia_drm
 
-
-## nvtop ? NO!
-
-Removed all 470 drivers and broke everything.  Reinstall of drivers let to below - not sure if we did the driver signing / BIOS step correctly.
-
-```
-Can't load /var/lib/shim-signed/mok/.rnd into RNG
-140074646935360:error:2406F079:random number generator:RAND_load_file:Cannot open file:../crypto/rand/randfile.c:98:Filename=/var/lib/shim-signed/mok/.rnd
-Generating a RSA private key
-........................................................................+++++
-.........+++++
-writing new private key to '/var/lib/shim-signed/mok/MOK.priv'
------
-Secure Boot not enabled on this system.
-```

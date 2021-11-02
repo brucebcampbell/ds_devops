@@ -1,31 +1,30 @@
-#MAnual Stuff
-# sdudo vi /etc/sudoers
-#Find a line which contains includedir /etc/sudoers.d
-#Below that line add: username ALL=(ALL) NOPASSWD: ALL , where username is your passwordless sudo username;
+#Razer Blade 15 (2021) FHD setup
+#sudo vi /etc/systemd/logind.conf
+#HandleLidSwitch=ignore
+#HandleLidSwitchExternalPower=ignore
+#
+#------------------------
+#sudo vi /etc/default/grub
+Edit:
+#FROM    #GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+#    GRUB_CMDLINE_LINUX_DEFAULT=""
+# OR
+# GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_osi=Linux i915.enable_psr=0 i915.enable_rc6=0 button.lid_init_state=open"
 
+   
 
-#Nasty Stuff
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
-sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-wget https://developer.download.nvidia.com/compute/cuda/11.4.2/local_installers/cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu2004-11-4-local_11.4.2-470.57.02-1_amd64.deb
-sudo apt-key add /var/cuda-repo-ubuntu2004-11-4-local/7fa2af80.pub
-sudo apt-get update
-sudo apt-get -y install cuda
+cd /media/wavescholar/kilo-storage/
+
+mkdir ~/work
+cp -r ds_devops/ ~/work/
+cp -r dev-srcts/ ~
+
 
 echo  "
-export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}
+source ~/dev-srcts/kilo.srcts
 "  >> ~/.bashrc
 
-
-echo  "
-export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64\
-                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-"  >> ~/.bashrc
-
-
-
-
+source    ~/.bashrc
 sudo apt-get install -y vim
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 sudo apt install -y gnome-tweaks
@@ -42,12 +41,12 @@ mkdir ~/opt
 
 pip install ranger-fm
 
-sudo apt install bat
+sudo apt install -y bat
 echo  "
 alias cat='batcat'
 "  >> ~/.bashrc
 
-sudo snap install btop
+sudo snap install -y btop
 cd ../
 
 echo  "

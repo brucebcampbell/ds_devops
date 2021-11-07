@@ -1,4 +1,7 @@
-#sudo apt update && sudo apt upgrade -y
+sudo apt update  --fix-missing && sudo apt upgrade -y
+
+# force the package manager to find any missing dependencies or broken packages and install them
+sudo apt-get install -f
 
 export CONDA_ENV=snowflakes
 
@@ -16,7 +19,6 @@ export CONDA_BIN=Anaconda3-2021.05-Linux-x86_64.sh
 wget https://repo.anaconda.com/archive/$CONDA_BIN
 bash $CONDA_BIN
 
-
 echo "ready"
 
 #LOGOUT AND BACK IN
@@ -26,26 +28,54 @@ conda create -y -n $CONDA_ENV python=3.8
 
 conda activate $CONDA_ENV
 
-conda install -y pip
-conda install -y Flake8 black sphinx ipywidgets IPython Cython  wurlitzer boto3
-conda install -y -c conda-forge google-cloud-storage
+conda install -y pip Flake8 black sphinx IPython Cython
 conda install -y pandas pandas-profiling pandasql
-pip install modin #The modin.pandas DataFrame is an extremely light-weight parallel DataFrame. Modin transparently distributes the data and computation so that all you need to do is continue using the pandas API as you were before installing Modin.
-conda install -y -c quantopian pandas-datareader #The Pandas datareader is a sub package that allows one to create a dataframe from various internet datasources, currently including:Yahoo! FinanceGoogle FinanceSt.Louis FED (FRED)Kenneth French’s data libraryWorld BankGoogle Analytics
-conda install -y matplotlib seaborn pyviz datashader altair
+
 conda install -y numpy scipy scikit-learn
-#conda install -y scikit-learn-intelex  # Intel Data Science Library
-conda install -y dill #dill extends python’s pickle module for serializing and de-serializing python objects to the majority of the built-in python types. Serialization is the process of converting an object to a byte stream, and the inverse of which is converting a byte stream back to a python object hierarchy.
-#conda install -n $CONDA_ENV -c rapidsai -c nvidia -c conda-forge blazingsql=0.19 cudf=0.19 python=3.8 cudatoolkit=10.1
+conda install -y matplotlib seaborn
+conda install -y pyviz
+pip install modin
+conda install -y cvxopt
+conda install -y -c conda-forge lapack
+conda install -y -c cvxgrp cvxpy
 pip install rich
-
-
-pip install tensorflow-gpu
-pip install tensorflow-probability tensorflow_decision_forests keras
-
+pip install numba
+pip install mlflow kedro-mlflow kedro
+pip install tensorflow-gpu keras
+pip install tensorflow-probability tensorflow_decision_forests
 pip install lightgbm catboost category_encoders
 pip install --ignore-installed great-expectations
 pip install 'ray[default]' xgboost_ray
+
+
+
+
+
+
+#wurlitzer boto3 ipywidgets
+#conda install -y -c conda-forge google-cloud-storage
+#The modin.pandas DataFrame is an extremely light-weight parallel DataFrame. Modin transparently distributes
+#the data and computation so that all you need to do is continue using the pandas API as you were before installing Modin.
+#conda install -y -c quantopian pandas-datareader #The Pandas datareader is a sub package that allows one to create a dataframe from various internet datasources, currently including:Yahoo! FinanceGoogle FinanceSt.Louis FED (FRED)Kenneth French’s data libraryWorld BankGoogle Analytics
+
+ #datashader altair
+#conda install -y scikit-learn-intelex  # Intel Data Science Library
+conda install -y dill #dill extends python’s pickle module for serializing and de-serializing python objects to the majority of the built-in python types. Serialization is the process of converting an object to a byte stream, and the inverse of which is converting a byte stream back to a python object hierarchy.
+#conda install -n $CONDA_ENV -c rapidsai -c nvidia -c conda-forge blazingsql=0.19 cudf=0.19 python=3.8 cudatoolkit=10.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 pip install umap-learn
 pip install Optuna
@@ -53,16 +83,13 @@ pip install MIDASpy # Multiple imputation with autoencoders
 pip install missingno # simple vis for missingness
 pip install tsfresh prophet orbit-ml
 
-pip install --upgrade jax jaxlib==0.1.67+cuda111 -f https://storage.googleapis.com/jax-releases/jax_releases.html
-pip install numba
-pip install mlflow kedro-mlflow kedro
+#pip install --upgrade jax jaxlib==0.1.67+cuda111 -f https://storage.googleapis.com/jax-releases/jax_releases.html
+
 
 #  L1 and Convex Optimization
 pip install  osqp
-conda install -y cvxopt
-#cvxpy module is a nice wrapper around cvxopt that follows paradigm of a disciplined convex programming.
-conda install -y -c conda-forge lapack
-conda install -y -c cvxgrp cvxpy
+
+
 #https://pymanopt.github.io/
 #Riemannian Optimisation with Pymanopt for Inference in MoG models
 #https://pymanopt.github.io/MoG.html
@@ -123,7 +150,7 @@ conda activate $CONDA_ENV
 
 echo  '
 conda activate `$CONDA_ENV`
-'  >> ~/.bashrc
+'  > ~/.bashrc
 
 
 #Jupyter

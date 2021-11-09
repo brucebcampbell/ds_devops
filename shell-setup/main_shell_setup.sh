@@ -5,23 +5,18 @@
 #
 #------------------------
 #sudo vi /etc/default/grub
-Edit:
+
 #FROM    #GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 #    GRUB_CMDLINE_LINUX_DEFAULT=""
 # OR
 # GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_osi=Linux i915.enable_psr=0 i915.enable_rc6=0 button.lid_init_state=open"
 
-   
-
-cd /media/wavescholar/kilo-storage/
-
 mkdir ~/work
 cp -r ds_devops/ ~/work/
 cp -r dev-srcts/ ~
 
-
 echo  "
-source ~/dev-srcts/kilo.srcts
+source ~/dev-srcts/mega.srcts
 "  >> ~/.bashrc
 
 source    ~/.bashrc
@@ -29,6 +24,8 @@ sudo apt-get install -y vim
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 sudo apt install -y gnome-tweaks
 sudo apt-get install chrome-gnome-shell
+sudo apt-get install -y curl
+sudo apt-get install -y ncal
 
 gsettings set org.gnome.desktop.background picture-uri ''
 gsettings set org.gnome.desktop.background primary-color 'rgb(0, 0, 0)'
@@ -65,13 +62,8 @@ alias dstat='dstat --cpu --disk  --fs  --io --ipc --load --lock --mem --net --pa
 #--------------------HTOP
 sudo apt-get -y install htop
 
-
 #Glances - like htop
 sudo apt-get install -y glances
-
-
-
-#---------------------------------
 
 
 #-------------------------TMUX

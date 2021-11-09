@@ -30,7 +30,6 @@ conda activate $CONDA_ENV
 
 conda install -y pip Flake8 black sphinx IPython Cython
 conda install -y pandas pandas-profiling pandasql
-
 conda install -y numpy scipy scikit-learn
 conda install -y matplotlib seaborn
 conda install -y pyviz

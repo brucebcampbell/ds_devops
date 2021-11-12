@@ -164,3 +164,28 @@ nvidia_modeset       1196032  20 nvidia_drm
 nvidia              35270656  1381 nvidia_uvm,nvidia_modeset
 drm_kms_helper        245760  1 nvidia_drm
 drm                   552960  14 drm_kms_helper,nvidia,nvidia_drm
+
+
+
+
+## Cuda Docker
+
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#install-guide
+
+```
+distribution=ubuntu18.04 \
+   && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - \
+   && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+```
+
+```
+sudo apt-get update
+sudo apt-get install -y nvidia-docker2
+sudo systemctl restart docker
+```
+
+Then test with a cuda container
+
+```
+sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
+```

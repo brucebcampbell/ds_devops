@@ -18,14 +18,14 @@
 # To sign all commits by default in any local repository on your computer, run
 # To sign use -S  as here : git commit -S -m your commit message
 # For tags :  git tag -s mytag
-git config --global commit.gpgsign true
+
 
 git config --global commit.gpgsign true
 gpg --full-generate-key
 gpg --list-secret-keys --keyid-format=long
-gpg --armor --export # from the first line of the list command 0C3412A456041413
+gpg --armor --export yourkeyid # from the first line of the list command 0C3412A456041413 - don't use the rsa part at the beginning
 
-git config --global user.signingkey 0C3412A456041413
+git config --global user.signingkey yourkeyid # 8502516EB4BB4504
 
 
 mkdir ~/work

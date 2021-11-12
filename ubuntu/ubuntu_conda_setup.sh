@@ -34,9 +34,7 @@ conda install -y numpy scipy scikit-learn
 conda install -y matplotlib seaborn
 conda install -y pyviz
 pip install modin
-conda install -y cvxopt
-conda install -y -c conda-forge lapack
-conda install -y -c cvxgrp cvxpy
+
 pip install rich
 pip install numba
 pip install mlflow kedro-mlflow kedro

@@ -22,9 +22,10 @@ git config --global commit.gpgsign true
 
 git config --global commit.gpgsign true
 gpg --full-generate-key
-gpg list
+gpg --list-secret-keys --keyid-format=long
 gpg --armor --export # from the first line of the list command 0C3412A456041413
 
+git config --global user.signingkey 0C3412A456041413
 
 
 mkdir ~/work

@@ -11,6 +11,22 @@
 # OR
 # GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_osi=Linux i915.enable_psr=0 i915.enable_rc6=0 button.lid_init_state=open"
 
+
+
+# To configure your Git client to sign commits by default for a local repository, in Git
+# versions 2.0.0 and above, run git config commit.gpgsign true.
+# To sign all commits by default in any local repository on your computer, run
+# To sign use -S  as here : git commit -S -m your commit message
+# For tags :  git tag -s mytag
+git config --global commit.gpgsign true
+
+git config --global commit.gpgsign true
+gpg --full-generate-key
+gpg list
+gpg --armor --export # from the first line of the list command 0C3412A456041413
+
+
+
 mkdir ~/work
 cp -r ds_devops/ ~/work/
 cp -r dev-srcts/ ~

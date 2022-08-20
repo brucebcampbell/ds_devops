@@ -38,15 +38,15 @@ source ~/dev-srcts/mega.srcts
 
 source    ~/.bashrc
 sudo apt-get install -y vim
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+#gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 sudo apt install -y gnome-tweaks
-sudo apt-get install chrome-gnome-shell
-gsettings set org.gnome.desktop.background picture-uri ''
-gsettings set org.gnome.desktop.background primary-color 'rgb(0, 0, 0)'
+#sudo apt-get install chrome-gnome-shell
+#gsettings set org.gnome.desktop.background picture-uri ''
+#gsettings set org.gnome.desktop.background primary-color 'rgb(0, 0, 0)'
 
 sudo apt-get install -y curl
-sudo apt-get install -y ncal
-sudo apt install -y screenfetch
+#sudo apt-get install -y ncal
+#sudo apt install -y screenfetch
 
 git config --global user.email $GITHUB_EMAIL
 git config --global user.name $GITHUB_USER
